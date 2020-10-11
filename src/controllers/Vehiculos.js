@@ -4,7 +4,7 @@ const Vehiculo = require('../../database/models/Vehiculos')
 const getVehiculos = async (req, res) => {
     try {
         let respuesta =await Vehiculo.findAll({
-            include:["MARCAS","MODELOS"]
+            include:["MARCAS","MODELOS","CLIENTES"]
         });
         res.send(respuesta)
         

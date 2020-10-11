@@ -21,12 +21,14 @@ app.use('/api/Marcas', require('./src/routes/Marcas'));
 app.use('/api/Modelos', require('./src/routes/Modelos'));
 app.use('/api/Clientes', require('./src/routes/Clientes'));
 app.use('/api/Vehiculos', require('./src/routes/Vehiculos'));
+app.use('/api/Empleados', require('./src/routes/Empleados'));
+app.use('/api/Usuarios', require('./src/routes/Usuarios'));
 
 
 
 app.listen(5002, () => {
     console.log("Running")
-    sequelize.sync({ force: true }).then(() => {
+    sequelize.sync({ force: false }).then(() => {
         console.log("bd connected")
     }).catch(error => {
         console.log(error)
