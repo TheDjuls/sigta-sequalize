@@ -15,12 +15,17 @@ const getVehiculos = async (req, res) => {
 }
 
 const saveVehiculos = async (req, res) => {
-    const { nombre } = req.body;
+    const { id_cliente,id_marca,id_modelo,color,anio,matricula } = req.body;
     try {
        await Vehiculo.create({
-           NOMBRE:nombre
-       }).then(marca=>{
-           res.json(marca)
+           ID_CLIENTE:id_cliente,
+           ID_MARCA:id_marca,
+           ID_MODELO:id_modelo,
+           ANIO:anio,
+           MATRICULA:matricula,
+           COLOR:color
+       }).then(v=>{
+           res.json(v)
        }).catch(err=>{
            res.json(err)
        })
